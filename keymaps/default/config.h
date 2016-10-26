@@ -3,7 +3,9 @@
 
 #include "../../config.h"
 
-#define LSPO_KEY KC_9
-#define RSPC_KEY KC_0
+#include "keymap_extras/keymap_german_osx.h"
+
+#define LSPO_KEY DE_OSX_LESS
+#define RSPC_KEY DE_OSX_MORE
 
 #endif
