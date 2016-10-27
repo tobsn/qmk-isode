@@ -2,12 +2,9 @@
 #include "keymap_extras/keymap_german_osx.h"
 
 #define LAYER_BASE 0
-#define LAYER_SPEC 1
-#define LAYER_RSFT 2
-#define LAYER_RGUI 3
-
-#define LSPO_KEY DE_OSX_LESS
-#define RSPC_KEY DE_OSX_MORE
+#define LAYER_RSFT 1
+#define LAYER_SPEC 3
+#define LAYER_RGUI 2
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  /* BASE
@@ -24,16 +21,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[LAYER_BASE] = KEYMAP( /* Base */
 		KC_ESC,   DE_OSX_Q, DE_OSX_W, DE_OSX_E, DE_OSX_R, DE_OSX_T, DE_OSX_Z, DE_OSX_U, DE_OSX_I,    DE_OSX_O,   DE_OSX_P,    DE_OSX_UE, KC_BSPACE, \
 		KC_TAB,   DE_OSX_A, DE_OSX_S, DE_OSX_D, DE_OSX_F, DE_OSX_G, DE_OSX_H, DE_OSX_J, DE_OSX_K,    DE_OSX_L,   DE_OSX_OE,   DE_OSX_AE, KC_ENTER, \
-		LSPO_KEY, DE_OSX_Y, DE_OSX_X, DE_OSX_C, DE_OSX_V, DE_OSX_B, DE_OSX_N, DE_OSX_M, DE_OSX_COMM, DE_OSX_DOT, DE_OSX_MINS, LT(LAYER_RSFT, RSPC_KEY), \
-		KC_LCTRL, KC_LALT,  KC_LGUI,            LT(LAYER_SPEC,KC_SPC),        KC_SPC,                LT(LAYER_RGUI,KC_RGUI), KC_RALT, KC_RCTRL \
+		SFT_T(DE_OSX_LESS), DE_OSX_Y, DE_OSX_X, DE_OSX_C, DE_OSX_V, DE_OSX_B, DE_OSX_N, DE_OSX_M, DE_OSX_COMM, DE_OSX_DOT, DE_OSX_MINS, LT(LAYER_RSFT,KC_RABK), \
+		KC_LCTRL, KC_LALT,  KC_LGUI,            LT(LAYER_SPEC,KC_SPC),        KC_SPC,                KC_RGUI, KC_RALT, KC_RCTRL \
 	),
-
 
  /* BASE + MODIFIER
  * .-----.-----.-----.-----.-----.-----.-----.-----.-----.-----.-----.-----.------.
- * |  ^  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  ß  |  +   |
+ * |  ^  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  UP |  +   |
  * |-----'.----'.----'.----'.----'.----'.----'.----'.----'.----'.----'.----'.-----|
- * |      |     |     |     |     |     |     |     |     |     |     |     |     |
+ * |      |RSET |     |     |     |     |     |     |     |     |LEFT |DOWN |RIGHT|
  * |------'--.--'--.--'--.--'--.--'--.--'--.--'--.--'--.--'--.--'--.--'--.--'-----|
  * |         |     |     |     |     |     |     |     |     |     |     |        |
  * |------.--'---.-'-----+-----'-----'----.'-----'-----'--.--'----.'-----+--------|
@@ -41,8 +37,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------'------'-------'----------------'---------------'-------'------'--------'
  */
 	[LAYER_SPEC] = KEYMAP( /* Base */
-		DE_OSX_CIRC, DE_OSX_1, DE_OSX_2, DE_OSX_3, DE_OSX_4, DE_OSX_5, DE_OSX_6, DE_OSX_7, DE_OSX_8, DE_OSX_9, DE_OSX_0, DE_OSX_SS, DE_OSX_ACUT, \
-		KC_TRNS,     KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS, \
+		DE_OSX_CIRC, DE_OSX_1, DE_OSX_2, DE_OSX_3, DE_OSX_4, DE_OSX_5, DE_OSX_6, DE_OSX_7, DE_OSX_8, DE_OSX_9, DE_OSX_0, KC_UP, DE_OSX_ACUT, \
+		KC_TRNS,     RESET,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_LEFT,  KC_DOWN,   KC_RIGHT, \
 		KC_TRNS,     KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, \
 		KC_TRNS,     KC_TRNS,  KC_TRNS,            KC_TRNS,                      KC_TRNS,            KC_TRNS,  KC_TRNS,  KC_TRNS \
 	),
@@ -78,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------'------'-------'----------------'---------------'-------'------'--------'
  */
 	[LAYER_RGUI] = KEYMAP( /* Base */
-		KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, DE_OSX_LCBR, DE_OSX_LBRC, DE_OSX_RBRC, DE_OSX_RCBR, DE_OSX_BSLS, KC_TRNS, \
+		KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, DE_OSX_BSLS, KC_TRNS, \
 		KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS, \
 		DE_OSX_PIPE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS, \
 		KC_TRNS,     KC_TRNS, KC_TRNS,            KC_TRNS,                 KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS \
