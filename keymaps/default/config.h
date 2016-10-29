@@ -3,4 +3,7 @@
 
 #include "../../config.h"
 
+#define LSPO_KEY KC_GRV
+#define RSPC_KEY LSFT(KC_GRV)
+
 #endif
